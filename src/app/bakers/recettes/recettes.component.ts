@@ -13,13 +13,13 @@ export class RecettesComponent implements OnInit {
     titre: 'Pizza montagnarde',
     shortDescription: 'C\'est méga bon!',
     description: 'oijh fmzehf zemjhf zekjhf',
-    imageURL: 'https://picsum.photos/200/100'
+    imageURL: 'https://source.unsplash.com/random/200x50/?food'
   },
     {
-      titre: 'Gaspacho',
+      titre: 'Penne alla putanesca',
       shortDescription: 'C\'est méga bon!',
       description: 'oijh fmzehf zemjhf zekjhf',
-      imageURL: 'https://picsum.photos/200/100'
+      imageURL: 'https://source.unsplash.com/random/201x50/?food'
     },
   ];
 

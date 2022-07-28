@@ -1,2 +1,4 @@
-<app-recettes></app-recettes>
-<app-shopping-list></app-shopping-list>
+<div class="container mt-4">
+  <app-recettes *ngIf="currentNav === 'recettes'"></app-recettes>
+  <app-shopping-list *ngIf="currentNav === 'shopping-list'"></app-shopping-list>
+</div>
