@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group">
+        <app-recette *ngFor="let recette of recettes" [recette]="recette"></app-recette>
+      </div>
+    </div>
+    <div class="col">
+      <app-recette-detail></app-recette-detail>
+    </div>
+  </div>
+</div>
