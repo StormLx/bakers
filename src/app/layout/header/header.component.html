@@ -8,15 +8,17 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link"
-             href="#"
-             [ngClass]="{'active' : activeNav === 'recettes'}"
-             aria-current="page" (click)="onClick('recettes')">Recettes</a>
+             [routerLink]="['recettes']"
+             [routerLinkActive]="'active'"
+             aria-current="page">Recettes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             href="#"
-             [ngClass]="{'active' : activeNav === 'shopping-list'}"
-             (click)="onClick('shopping-list')">Shopping List</a>
+             [routerLink]="['shopping-list']"
+             [routerLinkActive]="'active'"
+             aria-current="page">Shopping List
+            <span class="badge badge-primary" *ngIf="nItems$ | async as nItems">{{ nItems }}</span>
+          </a>
         </li>
 
       </ul>

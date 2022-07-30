@@ -1,12 +1,14 @@
 
   <div class="row">
     <div class="col-4">
-      <div class="list-group">
+      <div class="list-group" *ngIf="(recettes$ | async) as recettes">
         <app-recette *ngFor="let recette of recettes" [recette]="recette"></app-recette>
       </div>
     </div>
     <div class="col">
-      <app-recette-detail></app-recette-detail>
+      <app-recette-detail *ngIf="(recette$ | async) as rec"
+                          [recette]="rec"
+      ></app-recette-detail>
     </div>
   </div>
 

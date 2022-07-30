@@ -1,23 +1,33 @@
 <div class="card mb-3">
-  <img src="https://source.unsplash.com/random/400x200/?food" class="card-img-top" alt="...">
+  <img [src]="recette.imageURL" class="card-img-top" alt="...">
   <div class="card-body">
-    <h3 class="card-title">Penne alla putanesca</h3>
+    <h3 class="card-title">{{recette.titre}}</h3>
     <h5 class="card-title mt-2">Ingrédients</h5>
-    <ul class="list-group">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
+    <table class="table table-dark table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ingrédient</th>
+        <th scope="col">Quantité</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ingredient of recette.ingredients; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ingredient.ingredient.name}}</td>
+        <td>{{ingredient.quantity}} {{ingredient.ingredient.mesure}}</td>
+      </tr>
+      </tbody>
+    </table>
     <h5 class="card-title mt-2">Description</h5>
-    <p class="card-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consectetur debitis dolorem earum facere id incidunt laborum neque officia optio, porro possimus quisquam quod repellat repudiandae sequi sit, sunt.</span><span>Animi assumenda cupiditate debitis dolor eos eum expedita fugiat harum illo illum incidunt ipsa non nostrum odit officiis, perferendis placeat possimus saepe suscipit tempora, tenetur vel veniam voluptate! Asperiores, tenetur.</span><span>Aliquid beatae ipsa itaque nemo, nulla provident reiciendis reprehenderit sapiente sunt vero vitae voluptas! Distinctio eligendi excepturi ipsa libero mollitia saepe ut veritatis voluptates? Adipisci culpa explicabo incidunt neque quia.</span><span>Asperiores delectus distinctio esse excepturi, fugit impedit, laboriosam magnam minima molestiae molestias numquam omnis quidem similique? Aliquid animi aspernatur dolorem magnam magni minima perspiciatis, quam quisquam saepe sit, velit voluptatem.</span><span>Accusamus aliquam amet assumenda autem culpa debitis dolor earum eligendi esse est facere fugit harum hic id ipsum iure maiores minima modi nisi placeat quam quasi, reiciendis sint vel vero!</span>
+    <p class="card-text">
+      {{recette.description}}
     </p>
 
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     <div class="row">
       <div class="col d-flex justify-content-end">
-        <button class="btn btn-outline-dark">Ajouter au panier</button>
+        <button class="btn btn-outline-dark" (click)="addItemsToCart()">Ajouter au panier</button>
       </div>
     </div>
   </div>

@@ -10,7 +10,10 @@
       <p class="card-text">
         {{ recette.shortDescription }}
       </p>
-      <a href="#" class="btn btn-secondary">Détails</a>
+      <a  class="btn"
+         *ngIf="(recette$ | async) as rec"
+         [ngClass]="recette.id == rec.id ? 'btn-danger' : 'btn-dark'"
+         (click)="onDisplayDetails()">Détails</a>
     </div>
   </div>
 </div>
