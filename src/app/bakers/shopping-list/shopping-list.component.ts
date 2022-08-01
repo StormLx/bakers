@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Ingredient} from "../../shared/interface/ingredient.model";
+import {Component, OnInit} from '@angular/core';
 import {ShoppingListService} from "../../service/shopping-list.service";
+import {first} from "rxjs";
 import {CartItem} from "../../shared/interface/cart-item.model";
 
 @Component({
@@ -11,16 +11,25 @@ import {CartItem} from "../../shared/interface/cart-item.model";
 export class ShoppingListComponent implements OnInit {
 
   cartItems$ = this.shoppingListService.cartItems$;
-  cartItems: CartItem[] = [];
 
 
-  constructor(private shoppingListService: ShoppingListService) { }
-
-  ngOnInit(): void {
-    this.shoppingListService.cartItems$.subscribe(items => {
-      this.cartItems = [...items];
-      console.log(this.cartItems)
-    });
+  constructor(private shoppingListService: ShoppingListService) {
   }
 
+  ngOnInit(): void {
+  }
+
+  delete(item: CartItem): void {
+    this.shoppingListService.removeFromCart(item);
+  }
+
+  addOne(item: CartItem): void {
+    item.quantity++;
+    this.shoppingListService.updateInCart(item);
+  }
+
+  removeOne(item: CartItem): void {
+    item.quantity--;
+    this.shoppingListService.updateInCart(item);
+  }
 }

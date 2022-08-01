@@ -9,6 +9,8 @@ import { RecettesComponent } from './bakers/recettes/recettes.component';
 import { RecetteComponent } from './bakers/recettes/recette/recette.component';
 import { RecetteDetailComponent } from './bakers/recettes/recette-detail/recette-detail.component';
 import { ShoppingListComponent } from './bakers/shopping-list/shopping-list.component';
+import {FormsModule} from "@angular/forms";
+import {CartTotalComponent} from "./bakers/shopping-list/cart-total/cart-total.component";
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { ShoppingListComponent } from './bakers/shopping-list/shopping-list.comp
     RecettesComponent,
     RecetteComponent,
     RecetteDetailComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    CartTotalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
